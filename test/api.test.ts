@@ -54,4 +54,10 @@ describe('GET /api/risks', () => {
     expect(res.status).toBe(200);
     expect(res.body.risks).toHaveLength(6);
   });
+
+  it('returns a JSON 404 for an unknown /api route', async () => {
+    const res = await request(app).get('/api/does-not-exist').set('X-User-Id', 'u-anna');
+    expect(res.status).toBe(404);
+    expect(res.body.error.code).toBe('not_found');
+  });
 });

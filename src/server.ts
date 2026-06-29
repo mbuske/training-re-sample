@@ -20,6 +20,11 @@ export function createApp(): express.Express {
   // Static frontend (no auth) — served from ../public relative to src/.
   app.use(express.static(path.resolve(here, '../public')));
 
+  // JSON 404 for unmatched /api routes — keeps the { error: { code, message } } contract.
+  app.use('/api', (_req, res) => {
+    res.status(404).json({ error: { code: 'not_found', message: 'Unknown API route' } });
+  });
+
   // Central error middleware → { error: { code, message } }.
   app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {
     const status = err instanceof HttpError ? err.status : 500;

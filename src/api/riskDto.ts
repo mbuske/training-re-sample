@@ -1,12 +1,12 @@
-import type { Risk } from '../domain';
+import type { Risk, RiskCategory, RiskStatus } from '../domain';
 import { findUser } from '../data/seed';
 
 /** Risk shape safe to send to the client — allowlist-aligned, no sensitive fields. */
 export interface PublicRisk {
   id: string;
   title: string;
-  category: string;
-  status: string;
+  category: RiskCategory;
+  status: RiskStatus;
   probability: number;
   impact: number;
   score: number;

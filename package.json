@@ -6,6 +6,7 @@
   "description": "Base codebase for the AgenticRE training example FEAT-RISK-EXPORT-CSV (state before the CSV export).",
   "scripts": {
     "dev": "npm run build:public && tsx watch src/server.ts",
+    "prestart": "npm run build:public",
     "start": "tsx src/server.ts",
     "build": "tsc -p tsconfig.json --noEmit && npm run build:public",
     "build:public": "tsc -p tsconfig.public.json",
