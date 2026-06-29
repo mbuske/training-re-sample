@@ -28,6 +28,7 @@ describe('GET /api/risks', () => {
     expect(sample).not.toHaveProperty('internalNotes');
     expect(sample).not.toHaveProperty('ownerEmail');
     expect(sample).not.toHaveProperty('orgId');
+    expect(sample).not.toHaveProperty('ownerId');
   });
 
   it('applies server-side filters', async () => {
@@ -50,6 +51,7 @@ describe('GET /api/risks', () => {
 
   it('sees a different org for a different caller', async () => {
     const res = await request(app).get('/api/risks').set('X-User-Id', 'u-sara');
+    expect(res.status).toBe(200);
     expect(res.body.risks).toHaveLength(6);
   });
 });
