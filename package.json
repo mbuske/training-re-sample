@@ -1,0 +1,27 @@
+{
+  "name": "training-re-sample",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Base codebase for the AgenticRE training example FEAT-RISK-EXPORT-CSV (state before the CSV export).",
+  "scripts": {
+    "dev": "npm run build:public && tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "build": "tsc -p tsconfig.json --noEmit && npm run build:public",
+    "build:public": "tsc -p tsconfig.public.json",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.0",
+    "@types/supertest": "^6.0.2",
+    "supertest": "^6.3.4",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3",
+    "vitest": "^1.6.0"
+  }
+}
