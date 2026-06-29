@@ -9,5 +9,5 @@
     "outDir": "public",
     "rootDir": "public"
   },
-  "include": ["public/app.ts"]
+  "files": ["public/app.ts"]
 }

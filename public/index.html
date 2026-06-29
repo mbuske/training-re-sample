@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Risiko-Register — training-re-sample</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Risiko-Register</h1>
+      <p class="subtitle">Basis-Codebasis für die Übung „Baue eine Exportfunktion für Risiken als CSV."</p>
+    </header>
+
+    <section class="controls">
+      <label>
+        Angemeldet als
+        <select id="user-select">
+          <option value="u-anna">Anna Becker — Risk Manager (Nordwind AG)</option>
+          <option value="u-tom">Tom Vogel — Risk Owner (Nordwind AG)</option>
+          <option value="u-max">Max Frey — Viewer (Nordwind AG)</option>
+          <option value="u-sara">Sara Klein — Auditor (Südstern GmbH)</option>
+        </select>
+      </label>
+
+      <label>
+        Status
+        <select id="filter-status">
+          <option value="">alle</option>
+          <option value="open">open</option>
+          <option value="mitigated">mitigated</option>
+          <option value="accepted">accepted</option>
+          <option value="closed">closed</option>
+        </select>
+      </label>
+
+      <label>
+        Kategorie
+        <select id="filter-category">
+          <option value="">alle</option>
+          <option value="Operational">Operational</option>
+          <option value="Security">Security</option>
+          <option value="Financial">Financial</option>
+          <option value="Compliance">Compliance</option>
+        </select>
+      </label>
+
+      <label>
+        Min. Score
+        <input id="filter-minscore" type="number" min="0" max="25" placeholder="0" />
+      </label>
+    </section>
+
+    <section id="export-slot" class="export-slot">
+      <strong>Export</strong>
+      <span id="export-hint">— in dieser Übung zu bauen (FEAT-RISK-EXPORT-CSV)</span>
+    </section>
+
+    <p id="status-line" class="status-line"></p>
+
+    <table id="risk-table">
+      <thead>
+        <tr>
+          <th>Risk ID</th><th>Title</th><th>Category</th><th>Status</th>
+          <th>Prob.</th><th>Impact</th><th>Score</th><th>Owner</th><th>Updated</th>
+        </tr>
+      </thead>
+      <tbody id="risk-tbody"></tbody>
+    </table>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
