@@ -34,6 +34,22 @@ describe('parseRiskFilter', () => {
   it('throws 400 on a negative minScore', () => {
     expect(() => parseRiskFilter({ minScore: '-1' })).toThrow(HttpError);
   });
+
+  it('throws 400 on an unknown category', () => {
+    try {
+      parseRiskFilter({ category: 'Banana' });
+      throw new Error('should have thrown');
+    } catch (e) {
+      expect(e).toBeInstanceOf(HttpError);
+      expect((e as HttpError).status).toBe(400);
+      expect((e as HttpError).code).toBe('invalid_filter');
+    }
+  });
+
+  it('throws 400 on a non-finite minScore', () => {
+    expect(() => parseRiskFilter({ minScore: 'NaN' })).toThrow(HttpError);
+    expect(() => parseRiskFilter({ minScore: 'Infinity' })).toThrow(HttpError);
+  });
 });
 
 describe('applyFilters', () => {
