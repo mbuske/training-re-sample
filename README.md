@@ -1,5 +1,7 @@
 # training-re-sample
 
+*Read this in [Deutsch](README.de.md).*
+
 Base codebase for the **AgenticRE** training example **„Baue eine Exportfunktion
 für Risiken als CSV."** (`FEAT-RISK-EXPORT-CSV`). This repo is intentionally in the
 state *before* the export — participants build the export feature on top of it
@@ -39,6 +41,23 @@ they can implement that feature for real — not on a toy.
 
 The full requirement (spec, PRD, tasks, tests) lives in the companion training repo
 under `AgenticRE_01_LiveDemo_AgentSpec/.../03_demo_artifacts/`.
+
+## Agentic tooling
+
+Die Live-Demo nutzt **[opencode](https://opencode.ai)** als CLI-Harness für den
+agentischen Workflow. Installation per:
+
+```bash
+curl -fsSL https://opencode.ai/install | bash
+```
+
+Weitere Installationsvarianten (npm, brew, paru) sind auf <https://opencode.ai>
+dokumentiert.
+
+Ergänzend kommt **[Superpowers](https://github.com/obra/superpowers)** zum Einsatz —
+ein Skills-Framework, das wiederverwendbare Vorgehensweisen (Brainstorming, TDD,
+systematisches Debugging, Plan-Erstellung & -Ausführung etc.) als aufrufbare
+Skills bereitstellt und so die Agenten-Sessions strukturiert.
 
 ## Tech stack
 
